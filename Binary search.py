@@ -3,7 +3,7 @@ N = int(input("Enter number of elements: "))
 A = list(map(int,input("Enter elements: ").strip().split()))[:N]
 key = int(input("Enter the element to be searched: "))
 first = 0
-last = len(A) - 1
+last = N - 1
 mid = int((first + last) / 2)
 while ( last >= first):
     if ( A[mid] < key):
