@@ -1,96 +1,135 @@
+# Linked List Implementation using Python
+
 # Creation of node of Linked list
 class Node:
-    def __init__(self,data,next=None):
+    def __init__(self,data):
         self.data = data
-        self.next = next
+        self. next = None
+        
 # Join nodes to get a linked list
-class LinkedList:
+class LinkedList():
     def __init__(self):
         self.head = None
-    # Insertion of new node in the beginning
-    def add_begin(self,data):
+        
+     # Insertion of new node in the beginning
+    def insert_begin(self,data):
         new_node = Node(data)
         new_node.next = self.head
         self.head = new_node
+    
     # Insertion of new node at the end
-    def add_end(self,data):
-        new_node = Node(data)
+    def insert_end(self,data):
+        new_node= Node(data)
         if self.head == None:
             self.head = new_node
         else:
-            current = self.head
-            while(current.next):
-                current = current.next
-            current.next = new_node
+            temp = self.head
+            while(temp.next):
+                temp = temp.next
+            temp.next = new_node
+    
     # Insertion of new node at the nth position
-    def after_node(self,data,x):
-        current = self.head
-        while(current):
-            if x == current.data:
+    def insert_nth(self,data,position):
+        new_node = Node(data)
+        temp = self.head
+        counter = 0
+        while(temp.next):
+            if counter == position:
+                new_node.next = temp.next
+                temp.next = new_node
                 break
-            current = current.next
-        if current == None:
-            print("Node is not present in Linked List.")
-        else:
-            new_node = Node(data)
-            new_node.next = current.next
-            current.next = new_node
+            counter = counter + 1
+            temp = temp.next
+        
     # Deletion of node in the beginning
     def delete_begin(self):
         if self.head == None:
             print("Linked List is empty can't delete!")
         else:
-            p = self.head=self.head.next
+            p = self.head.data
+            self.head=self.head.next
             return p
-    # Deletion of node at the end
-    def delete_end(self):
-        current = self.head
-        if current == None:
+    
+    # Deletion of node in the end
+    def delete_end(self,position):
+        if self.head == None:
             print("Linked List is empty can't delete!")
-        elif current.next == None:
-            current = None
+        elif self.head.next == None:
+            self.head = None
         else:
-            while(current.next.next):
-                current = current.next
-            current.next = None
-    # Deletion of node from nth position
+            temp = self.head
+            while(temp.next.next):
+                temp = temp.next
+            p = temp.next.data
+            temp.next = None
+        return p
+              
+    # # Deletion of node at the nth position 
+    # def delete_nth(self,position):
+    #     if self.head == None:
+    #         print("Linked List is empty can't delete!")
+    #     else:
+    #         temp = self.head
+    #         counter = 0
+    #         while(temp.next):
+    #             if counter == position:
+    #                 # p = temp.next.data
+    #                 temp
+    #                 temp.next = None
+    #                 break
+    #             counter = counter + 1
+    #             temp = temp.next
+    #     # return p                
     # Print the Linked list
-    def print_LL(self):
-        current = self.head
-        if current == None:
-            print("Linked List is empty!!!")
+    def display(self):
+        if self.head == None:
+            print("Linked List is Empty!!!")
         else:
-            while(current):
-                print(current.data,end= "--->")
-                current = current.next
-LL = LinkedList()
+            temp = self.head
+            while temp != None:
+                print(temp.data,end= "--->")
+                temp = temp.next
+linked_list = LinkedList()
 while True:
-    print("\nLinked List Operations:-")
-    print("1. Insert at the beginning.")
-    print("2. Insert at the end.")
-    print("3. Delete from beginning.")
-    print("4. Delete from end.")
-    print("5. Display Linked List.")
-    print("6. Exit.")
+    print("\nLinked List Operations")
+    print("1. Insert At The Beginning")
+    print("2. Insert At The End")
+    print("3. Insert At The nth position")
+    print("4. Delete from beginning.")
+    print("5. Delete from end.")
+    # print("6. Delete At The nth position")
+    print("7. Display")
+    print("8. Exit")
     print("\n")
-    ch = int(input("Enter your choice (1-4): "))
+    ch = int(input("Enter your choice (1-8): "))
     if ch == 1:
-        x = int(input("Enter value to be inserted: "))
-        LL.add_begin(x)
-        print(x,"inserted successfully.\n")
+        x = int(input("Enter value: "))
+        linked_list.insert_begin(x)
+        print(x,"inserted successfully.")
     elif ch == 2:
-        y = int(input("Enter value to be inserted: "))
-        LL.add_end(y)
-        print(y,"inserted successfully.\n")
+        x = int(input("Enter value: "))
+        linked_list.insert_end(x)
+        print(x,"inserted successfully.")
     elif ch == 3:
-        p = LL.delete_begin()
-        print(p,"deleted successfully.")
+        x = int(input("Enter value: "))
+        y = int(input("Enter position: "))
+        linked_list.insert_nth(x,y)
+        print(x,"inserted successfully at position",y)
     elif ch == 4:
-        LL.delete_end()
+        p = linked_list.delete_begin()
+        print(p,"deleted successfully.")
     elif ch == 5:
-        LL.print_LL()
-    elif ch == 6:
+        p = linked_list.delete_end()
+        print(p,"deleted successfully.")
+    # elif ch == 6:
+    #     y = int(input("Enter position: "))
+    #     linked_list.delete_nth(y)
+    #     # print(p,"deleted successfully from position",y)
+    elif ch == 7:
+        linked_list.display()
+    elif ch == 8:
         break
     else:
-        print("Please enter valid choice!!!")
+        print("Please enter valid choice.")
+
     
