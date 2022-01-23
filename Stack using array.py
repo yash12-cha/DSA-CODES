@@ -1,4 +1,6 @@
-# Stack Implementation using Array
+/* Stack Implementation using Array
+For the array-based implementation of a stack, the push and pop operations take constant time, i.e., O (1).
+*/
 
 class Stack:
     # We are assuming that the size of our stack is 5, you may take any size
