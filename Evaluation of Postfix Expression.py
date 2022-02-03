@@ -6,6 +6,7 @@ class Solution:
     def evaluatePostfix(self, s):
         # Create an empty stack
         stack = deque()
+        # scan the expression from left to right
         for i in range(0,len(s)):
             # check if the character encountered is an operand or not
             if (s[i]>= '0' and s[i] <= '9'):
