@@ -13,7 +13,7 @@ class Solution(object):
             # compare the end time of popped interval with start time of current interval
             # if the end time of popped interval is greater than or equal to the start time of current interval,then
             if pe >= cs:
-                # Append to stack the start time of the popped interval as well as the maximum value out of the popped interval's end time and the current interval's                         end time. 
+                # Append to stack the start time of the popped interval as well as the maximum value out of the popped interval's end time and the current interval's end time. 
                 st.append([ps, max(pe, ce)])
             else:
                 # Append to stack the start and end time of the popped interval
