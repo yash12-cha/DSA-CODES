@@ -23,3 +23,8 @@ class Solution(object):
         # At the end stack contains the merged intervals
         # return stack
         return st
+
+'''
+Time Complexity:  O(nLogn)
+Space Complexity: O(n)
+'''
