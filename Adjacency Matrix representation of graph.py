@@ -16,4 +16,25 @@ for i in range(1, n + 1):
     for j in range(1, n + 1):
         print(adjm[i][j], end=" ")
     print()
+    
+'''
+Input: -
+7 7
+1 2
+1 3
+2 4
+2 5
+2 6
+2 7
+7 3
+Output: -
+Adjacency matrix of above graph is given by: 
+0 1 1 0 0 0 0 
+1 0 0 1 1 1 1 
+1 0 0 0 0 0 1 
+0 1 0 0 0 0 0 
+0 1 0 0 0 0 0 
+0 1 0 0 0 0 0 
+0 1 1 0 0 0 0
+'''
 
