@@ -21,3 +21,13 @@ s = list(map(int,input().split()))
 e = list(map(int,input().split()))
 res = activitySelection(n,s,e)
 print(res)
+
+'''
+Input:-
+6
+1 3 0 5 8 5
+2 4 6 7 9 9
+
+Output:-
+[0, 1, 3, 4]
+'''
