@@ -9,7 +9,7 @@ class Solution:
         dfs = []
         # If the queue is not empty
         while stack:
-            # Remove the first vertex from the queue
+            # Remove the first vertex from the stack
             node = stack.pop()
             if (not visited[node]):
                 dfs.append(node)
