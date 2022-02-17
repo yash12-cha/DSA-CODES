@@ -1,13 +1,13 @@
 from collections import deque
 class Solution:
     def bfsOfGraph(self, V, adj):
-        visited = []    # List to keep track of visited nodes
+        visited = [False] * (V + 1)  # List to keep track of visited nodes
         queue = deque() # Initialize a Queue
         # Select vertex 0 as the root node
         # Add vertex 0 to queue
         queue.append(0)
         # Mark vertex 0 as visited
-        visited.append(0)
+        visited[0] = True
         bfs = []
         # If the queue is not empty
         while queue:
@@ -16,7 +16,7 @@ class Solution:
             bfs.append(node)
             # Insert child nodes of the first vertex into the queue
             for neighbour in adj[node]:
-                if neighbour not in visited:
-                    visited.append(neighbour)
+                if visited[neighbour] == False:
+                    visited[neighbour] = True
                     queue.append(neighbour)
         return bfs
