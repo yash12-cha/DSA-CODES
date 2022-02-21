@@ -31,3 +31,13 @@ Input:-
 Output:-
 [0, 1, 3, 4]
 '''
+
+
+
+'''
+Time Complexity:
+
+    Case 1 : O(N), in case, the given array is sorted according to their finish times, where N is total steps.
+    Case 2 : O(NlogN), in case, the given array is not sorted according to their finish times, where N is total steps.
+    
+'''
