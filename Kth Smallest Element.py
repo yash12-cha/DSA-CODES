@@ -16,3 +16,6 @@ class Solution:
         c = heapq.heappop(maxHeap)
         # multiplying with -1
         return -1 * c
+'''
+Time Complexity: - O(nlogk)
+'''
