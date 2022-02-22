@@ -17,6 +17,4 @@ def nearlySorted(nums, k):
     while minHeap:
         a = heapq.heappop(minHeap)
         ans.append(a)
-
-
     return ans
