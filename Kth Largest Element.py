@@ -14,4 +14,6 @@ class Solution(object):
         # removes and returns the smallest element from the min heap
         return heappop(minHeap)
         
-        
+'''
+Time Complexity: - O(nlogk)
+'''
