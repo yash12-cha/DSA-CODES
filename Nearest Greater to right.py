@@ -24,6 +24,8 @@ Input: -
 
 Output:-
 -1 13 21 -1 -1
+
+Time Complexity: O(N) 
 '''
 
 
