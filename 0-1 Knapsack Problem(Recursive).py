@@ -24,4 +24,6 @@ Input:-
 
 Output:-
 60
+
+Time Complexity of the above approach is O(2^n).
 '''
