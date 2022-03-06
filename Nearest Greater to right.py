@@ -15,7 +15,7 @@ def nextLargerElement(arr, n):
 n = int(input())
 arr = list(map(int,input().split()))
 ans = nextLargerElement(arr,n)
-print(ans)
+print(*ans)
 
 '''
 Input: -
