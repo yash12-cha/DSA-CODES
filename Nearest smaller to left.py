@@ -16,4 +16,14 @@ arr = list(map(int,input().split()))
 ans = nextSmallerElement(arr,n)
 print(*ans)
 
+'''
+Input: -
+5
+6 4 10 2 5
+
+Output:-
+-1 -1 4 -1 2
+
+Time Complexity: O(N) 
+'''
 
