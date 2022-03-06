@@ -1,13 +1,13 @@
 def knapsack(wt,val,C,n):
     # defining the matrix and initialising as 0
-    dp = [[0 for x in range(C + 1)] for x in range(n + 1)]
+    dp = [[-1 for x in range(C + 1)] for x in range(n + 1)]
 
     # Base Case
     if n == 0 or C == 0:
         return 0
 
-    # checking if 0 is not present then value exists so,return.
-    if dp[n][C] != 0:
+    # checking if -1 is not present then value exists so,return.
+    if dp[n][C] != -1:
         return dp[n][C]
 
     # choice diagram
