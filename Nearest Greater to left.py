@@ -15,3 +15,15 @@ n = int(input())
 arr = list(map(int,input().split()))
 ans = nextLargerElement(arr,n)
 print(*ans)
+
+
+'''
+Input: -
+5
+24 11 13 21 3
+
+Output:-
+-1 13 21 -1 -1
+
+Time Complexity: O(N) 
+'''
