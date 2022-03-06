@@ -23,7 +23,7 @@ Input: -
 24 11 13 21 3
 
 Output:-
--1 13 21 -1 -1
+-1 24 24 24 21
 
 Time Complexity: O(N) 
 '''
