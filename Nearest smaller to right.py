@@ -8,7 +8,7 @@ def nextSmallerElement(arr, n):
         if len(stack) == 0:
             ans.append(-1)
         else:
-            ans.append(stack[-1])
+            ans.append(len(arr))
         stack.append(arr[i])
     ans.reverse()
     return ans
