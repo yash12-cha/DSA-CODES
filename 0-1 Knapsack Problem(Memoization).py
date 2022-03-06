@@ -1,5 +1,5 @@
 def knapsack(wt,val,C,n):
-    # defining the matrix and initialising as 0
+    # defining the matrix and initialising as -1
     dp = [[-1 for x in range(C + 1)] for x in range(n + 1)]
 
     # Base Case
