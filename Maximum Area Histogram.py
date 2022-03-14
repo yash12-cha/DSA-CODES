@@ -2,7 +2,7 @@ def nextSmallerElementToTheLeft(arr):
     nselIndex = []
     s = []
     n = len(arr)
-    for i in range(0, n):
+    for i in range(0, n,1):
         while (len(s) != 0 and s[-1][0] >= arr[i]):
             s.pop()
         if len(s) == 0:
