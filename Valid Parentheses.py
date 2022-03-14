@@ -31,4 +31,6 @@ Input:-
 
 Output:-
 True
+
+Time Complexity:O(N), where N is the total number of characters in the expression
 '''
