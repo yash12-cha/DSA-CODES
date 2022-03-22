@@ -1,5 +1,5 @@
 from collections import deque
-def nextLargerElement(arr, n):
+def nearestGreaterToRight(arr, n):
     stack = deque()
     ans = []
     for i in range(n - 1, -1, -1):
@@ -14,7 +14,7 @@ def nextLargerElement(arr, n):
     return ans
 n = int(input())
 arr = list(map(int,input().split()))
-ans = nextLargerElement(arr,n)
+ans = nearestGreaterToRight(arr,n)
 print(*ans)
 
 '''
