@@ -1,7 +1,7 @@
 from collections import deque
 class Solution:
     def bfsOfGraph(self, V, adj):
-        visited = [False] * (V + 1)  # List to keep track of visited nodes
+        visited = [False] * (V)  # List to keep track of visited nodes
         queue = deque() # Initialize a Queue
         # Select vertex 0 as the root node
         # Add vertex 0 to queue
