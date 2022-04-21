@@ -14,7 +14,7 @@ class Solution:
             if (not visited[node]):
                 dfs.append(node)
                 visited[node] = True
-            for neighbor in reversed(adj[node]):
+            for neighbor in adj[node]:
                 if (not visited[neighbor]):
                     stack.append(neighbor)
         return dfs
