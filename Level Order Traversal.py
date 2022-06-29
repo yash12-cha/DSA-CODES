@@ -47,3 +47,6 @@ tree.root.left.right = Node(5)
 print("Level Order Traversal is:", end=" ")
 ans = tree.levelOrder(tree.root)
 print(*ans)
+
+
+# Time Complexity: O(n) , where n is the number of nodes in the binary tree.
