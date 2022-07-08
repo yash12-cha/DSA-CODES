@@ -21,8 +21,8 @@ def dijkstra(V, adj, S):
         for it in adj[prev]:
             next = it[0]
             nextDist = it[1]
-            if(distTo[next] > dist + nextDist):
-                distTo[next] = distTo[prev] + nextDist
+            if( dist + nextDist < distTo[next] ):
+                distTo[next] = dist + nextDist
                 heapq.heappush(minHeap,[distTo[next],next])
     return distTo
 
@@ -45,14 +45,17 @@ for i in range(1,len(ans)):
     print(ans[i],end = " ")
 
 '''
-Enter number of nodes: 5
-Enter number of edges: 6
-Input Edges:   1 4 1
-4 3 3
-2 3 4
-2 5 5
-1 2 2
-3 5 1
+Enter number of nodes: 6
+Enter number of edges: 9
+Input Edges:  6 1 14
+1 2 7
+1 3 9
+3 2 10
+2 4 15
+4 5 6
+5 6 9
+6 3 2
+3 4 11
 Enter source node: 1
-Shortest path from 1 are:  0 2 4 1 5
+Shortest path from 1 are:  0 7 9 20 20 11 
 '''
