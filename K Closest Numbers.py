@@ -1,37 +1,32 @@
 import heapq
-def findKClosestElements(arr, k, x):
+def findClosestElements(arr, k, x):
     # Declare empty list
-    maxHeap = []
+    minHeap = []
     # using heapify to convert list into heap
-    heapq.heapify(maxHeap)
+    heapq.heapify(minHeap)
     for i in range(len(arr)):
         # Insert into Heap
         # the absolute value of the difference of x with current element
         # and the current element
-        heapq.heappush(maxHeap, (-1 * abs(x - arr[i]), -1 * arr[i]))
-        if len(maxHeap) > k:
-            # removes the largest element from the max heap
-            heapq.heappop(maxHeap)
+        heapq.heappush(minHeap, (abs(x - arr[i]), arr[i]))
     res = []
-    for diff, val in maxHeap:
-        res.append(-1 * val)
+    for j in range(k):
+        diff, val = heapq.heappop(minHeap)
+        res.append(val)
     res.sort()
     return res
-lis = list(map(int, input().split()))
-k = int(input())
-x = int(input())
-s = findKClosestElements(lis,k,x)
-print(*s)
+k = int(input("Enter value of k: "))
+x = int(input("Enter value of x: "))
+ls = list(map(int,input("Input List: ").split()))
+c = findClosestElements(ls,k,x)
+print("K closest numbers: ",*c,end=" ")
 
 
 '''
-Input:-
-5 6 7 8 9
-3
-7
-
-Output:-
-6 7 8
+Enter value of k: 3
+Enter value of x: 7
+Input List: 5 6 7 8 9
+K closest numbers:  6 7 8 
 
 Time Complexity:- O(n Log k)
 '''
