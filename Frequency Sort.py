@@ -13,13 +13,13 @@ def frequencySort(nums):
             freq[i] = 1
     # store the contents of hash in a maxHeap
     for i in freq:
-        heapq.heappush(maxHeap, (freq[i], (-1 * i)))
+        heapq.heappush(maxHeap, (-1 * freq[i], (i)))
     output = []
     while maxHeap:
         # delete the elements from maxHeap one by one  based on the frequency of values
         # and add them to resultant array
         freq, val = heapq.heappop(maxHeap)
-        val *= -1
+        freq *= -1
 
         for i in range(freq):
             output.append(val)
