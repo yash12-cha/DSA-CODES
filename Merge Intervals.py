@@ -32,7 +32,7 @@ for i in range(n):
     ls = list(map(int,input().split()))
     intervals.append(ls)
 ans = mergeIntervals(intervals)
-print("Merge Intervals: ",*ans)
+print("Merged Intervals: ",*ans)
 
 
 '''
