@@ -1,29 +1,34 @@
 def knapsack(wt,val,C,n):
-    # Base Case
+    
+    # If number of items is zero or
+    # Capacity of knapsack is zero
     if n == 0 or C == 0:
         return 0
-      
-    # choice diagram
+    
+    # When weight of item is less than or equal to capacity of Knapsack
     if wt[n-1] <= C:
         return max(val[n-1] + knapsack(wt,val,C-wt[n-1],n-1),knapsack(wt,val,C,n-1))
-    else:
+    
+    # When weight of item is greater than capacity of Knapsack
+    if wt[n-1] > C:
         return knapsack(wt,val,C,n-1)
-n = int(input())
-C = int(input())
-val = list(map(int,input().split()))
-wt = list(map(int,input().split()))
-ans = knapsack(wt,val,C,n)
-print(ans)
+
+N = int(input("Enter the number of items: "))
+C = int(input("Enter the capacity of knapsack: "))
+wt = list(map(int,input("Enter weight of items: ").split()))
+val = list(map(int,input("Enter value of items: ").split()))
+res = knapsack(wt,val,C,N)
+print("Maximum total value in the knapsack: ",res)
 
 '''
 Input:-
-4
-40
-10 20 30 40
-30 10 40 20
+Enter the number of items: 4
+Enter the capacity of knapsack: 40
+Enter weight of items: 30 10 40 20
+Enter value of items: 10 20 30 40
 
 Output:-
-60
+Maximum total value in the knapsack:  60
 
 Time Complexity of the above approach is O(2^n).
 '''
