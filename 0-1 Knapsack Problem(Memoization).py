@@ -1,7 +1,7 @@
 def knapsack(wt,val,C,n):
     # defining the matrix and initialising as -1
-    # C ---> row
-    # n ---> column
+    # C ---> column
+    # n ---> row
     dp = [[-1 for x in range(C + 1)] for x in range(n + 1)]
 
     # Base Case
