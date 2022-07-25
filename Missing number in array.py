@@ -10,7 +10,7 @@ def getMissingNo(arr):
     return total - sum(arr)
 n = int(input("Input number of elements: "))
 arr = list(map(int,input("Enter elements: ").split()))
-res = int(getMissingNo(arr))
+res = getMissingNo(arr)
 print("Missing Number: ",res)
 
 '''
