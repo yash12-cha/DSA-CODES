@@ -1,10 +1,16 @@
-def getMissingNo(arr, n):
-    total = (n + 1)*(n + 2)/2
-    sum_of_A = sum(arr)
-    return total - sum_of_A
+def getMissingNo(arr):
+    # get the array's length
+    n = len(arr)
+    # actual size is `n+1` since a number is missing from the list
+    m = n + 1
+    # get sum of integers between 1 and `n+1` using the formula N * (N+1)/2.
+    total = m * (m + 1) // 2
+    # the missing number is the difference between the expected sum and
+    # the actual sum of integers in the list
+    return total - sum(arr)
 n = int(input("Input number of elements: "))
 arr = list(map(int,input("Enter elements: ").split()))
-res = int(getMissingNo(arr,n))
+res = int(getMissingNo(arr))
 print("Missing Number: ",res)
 
 '''
