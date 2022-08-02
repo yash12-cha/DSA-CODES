@@ -1,4 +1,4 @@
-def activitySelection(n, start, end):
+def activitySelection(n,start,end):
     # Combine start and end time of activities in single list
     a = []
     for i in range(0, n):
@@ -16,20 +16,21 @@ def activitySelection(n, start, end):
             output.append(j)
             i = j
     return output
-n = int(input())
-s = list(map(int,input().split()))
-e = list(map(int,input().split()))
-res = activitySelection(n,s,e)
-print(res)
+n = int(input("Input number of activities: "))
+start = list(map(int,input("Input start time of activities: ").split()))
+end = list(map(int,input("Input end time of activities: ").split()))
+res = activitySelection(n,start,end)
+print("Following activities are selected: ",*res,end=" ")
+
 
 '''
 Input:-
-6
-1 3 0 5 8 5
-2 4 6 7 9 9
+Input number of activities: 6
+Input start time of activities: 1 3 0 5 8 5
+Input end time of activities: 2 4 6 7 9 9
 
 Output:-
-[0, 1, 3, 4]
+Following activities are selected:  0 1 3 4 
 '''
 
 
