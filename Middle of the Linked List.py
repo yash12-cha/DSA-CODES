@@ -25,7 +25,7 @@ class LinkedList:
         slow = self.head
         fast = self.head
         # Iterate till fast is null and fast's next is null (fast reaches end)
-        while (fast!= None and fast.next != None):
+        while (fast.next != None and fast!= None):
             slow = slow.next        # Move the slow pointer by one position
             fast = fast.next.next   # Move the fast pointer by two positions
         # return the slow's data, which would be the middle element.
