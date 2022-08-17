@@ -30,3 +30,7 @@ Input departure time of trains: 0910 1200 1120 1130 1900 2000
 Output:-
 Minimum number of platforms:  3
 '''
+
+'''
+Time Complexity: O(N * log N), One traversal O(n) of both the array is needed after sorting O(N * log N).
+'''
