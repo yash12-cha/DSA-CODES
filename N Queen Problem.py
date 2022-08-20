@@ -3,7 +3,7 @@
 # Function to check if placing queen to board[row][col] is safe.
 def isSafe(board, row, col, n):
     i = row - 1
-    # Check this coloumn.
+    # Check this coloumn only upward.
     while i >= 0:
         if board[i][col] == 'Q':
             return False
