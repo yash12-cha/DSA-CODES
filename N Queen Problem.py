@@ -38,8 +38,8 @@ def solve(row, n, board):
             print()
         print()
 
-    # Consider current column and try placing
-    # queen in all rows one by one
+    # Consider current row and try placing
+    # queen in all columns one by one
     for col in range(n):
         # Check if placing queen to board[row][col] is safe.
         if isSafe(board, row, col, n, ):
