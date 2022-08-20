@@ -83,3 +83,9 @@ Q . . .
 . Q . . 
 
 '''
+
+'''
+Time Complexity:-
+O(N!), where ‘N’ is the number of queens and ‘!’ represents factorial.
+For the first column, we check ‘N’ rows, for the second column we check 'N - 1 row and so on. hence time complexity will be N * (N-1) * (N-2) …. i.e N!
+'''
