@@ -1,7 +1,7 @@
 def bubbleSort(Arr, N):
     for i in range(N - 1):
         swapped = False
-        # Since, after each iteration right most i elements are sorted
+        # // (N - i - 1) is for ignoring comparisons of elements which have already been compared in earlier iterations
         for j in range(0, N - i - 1):
             if Arr[j] > Arr[j + 1]:
                 temp = Arr[j]
