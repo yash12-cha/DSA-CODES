@@ -64,4 +64,8 @@ Input Pattern: zz
 
 Output:-
 The number of occurrences of pattern in given text is:  3
+
+Time Complexity:-
+O(N), where ‘N’ is the length of the string ‘S’.
+Actually, the total time complexity will be O(N+M), where ‘M’ is the length of the string ‘P’, so we can simply say O(N) as ‘N’ will always be larger than 'M'.
 '''
