@@ -2,14 +2,19 @@ def atoi(s):
     n = len(s)
     number = 0
     isNegative = 0
+    
+    # Check Negative.
     if (s[0] == '-'):
         isNegative = 1
+        
     for i in range(n):
+        # If the charecter is a digit.
         if (s[i] >= '0' and s[i] <= '9'):
             digit = ord(s[i]) - ord('0')
             number = number * 10 + digit
         else:
             return -1
+        
     if (isNegative):
         number *= -1
     return number
