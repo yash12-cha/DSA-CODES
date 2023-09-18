@@ -1,23 +1,33 @@
-class Solution:
-    #Function to sort a list using quick sort algorithm.
-    def partition(self,arr,lb,ub):
-        pivot = arr[lb]
-        start = lb + 1
-        end = ub
-        while True:
-            while (start <= end and arr[start] <= pivot):
-                start += 1
-            while (start <= end and arr[end] >= pivot):
-                end -= 1
-            if (start < end):
-                arr[start], arr[end] = arr[end], arr[start]
-            else:
-                break
-        arr[lb], arr[end] = arr[end], arr[lb]
-        return end
-        
-    def quickSort(self,A,left,right):
-        if left < right:
-            pi = self.partition(A,left,right)
-            self.quickSort(A,left,pi-1)
-            self.quickSort(A,pi+1,right)
+def partition(A,s,e):
+    pivot = A[s]
+    cnt = 0
+    for i in range(s+1,e+1):
+        if A[i] <= pivot:
+            cnt = cnt + 1
+
+    pivotIndex = s + cnt
+    A[pivotIndex],A[s] = A[s],A[pivotIndex]
+    i = s
+    j = e
+    while(i < pivotIndex and j > pivotIndex):
+        while(A[i] <= pivot):
+            i = i + 1
+        while(A[j] > pivot):
+            j = j - 1
+        if(i < pivotIndex and j > pivotIndex):
+            A[i],A[j] = A[j],A[i]
+            i = i + 1
+            j = j - 1
+    return pivotIndex
+
+
+
+def QuickSort(A, left, right):
+    if left < right:
+        pi = partition(A, left, right)
+        QuickSort(A, left, pi - 1)
+        QuickSort(A, pi + 1, right)
+    return A
+A = list(map(int,input().split()))
+n = len(A)
+print(*QuickSort(A,0,n-1))
