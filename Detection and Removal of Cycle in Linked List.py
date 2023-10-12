@@ -32,6 +32,19 @@ class LinkedList:
                 return True
         return False
 
+    # Removal of Cycle in Linked List
+    def removeCycle(self,head):
+        slow = head
+        fast = head
+        while(slow != fast):
+            slow = slow.next
+            fast = fast.next.next
+        fast = head
+        while(slow.next != fast.next):
+            slow = slow.next
+            fast = fast.next
+        slow.next = None
+
     # Print (Traversal) the Linked list
     def print_LL(self,head):
         current = head
@@ -55,10 +68,18 @@ if p == True:
     print("\nYes cycle is present in linked list.")
 else:
     print("\nNo cycle is not present in linked list.")
+# Calling function for removal of cycle in linked list
+LL.removeCycle(LL.head)
+p = LL.hasCycle(LL.head)
+if p == True:
+    print("\nYes cycle is present in linked list.")
+else:
+    print("\nNo cycle is not present in linked list.")
 
 '''
 Output:
 Yes cycle is present in linked list.
+No cycle is not present in linked list.
 '''
 
 '''
