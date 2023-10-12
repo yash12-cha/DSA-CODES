@@ -1,41 +1,31 @@
 import heapq
-def frequencySort(nums):
+def SortByFrequency(arr):
+    n = len(arr)
+    hash = {}
+    for i in arr:
+        if i in hash:
+            hash[i] += 1
+        else:
+            hash[i] = 1
     # Declare empty list
     maxHeap = []
     # using heapify to convert list into heap
     heapq.heapify(maxHeap)
-    # insert all elements and their counts into a hash
-    freq = {}
-    for i in nums:
-        if i in freq:
-            freq[i] += 1
-        else:
-            freq[i] = 1
-    # store the contents of hash in a maxHeap
-    for i in freq:
-        heapq.heappush(maxHeap, (-1 * freq[i], (i)))
-    output = []
+    for r in hash:
+        # Adding items to the heap using heappush
+        # function by multiplying them with -1
+        heapq.heappush(maxHeap, [-hash[r], r])
+    ans = []
     while maxHeap:
-        # delete the elements from maxHeap one by one  based on the frequency of values
-        # and add them to resultant array
-        freq, val = heapq.heappop(maxHeap)
-        freq *= -1
-
-        for i in range(freq):
-            output.append(val)
-    return output
-
-lis = list(map(int, input().split()))
-s = frequencySort(lis)
-print(*s)
+        freq, ele = heapq.heappop(maxHeap) # Get the element with highest frequency
+        for i in range(-freq):
+            ans.append(ele)
+    return ans
+arr = list(map(int,input("Input Array: ").split()))
+res = SortByFrequency(arr)
+print("Sorting Elements of Array by Frequency: ",*res)
 
 '''
-Input:-
-2 3 1 3 2
-
-Output:-
-1 3 3 2 2
-
-Time Complexity:- O(N log N + N)
+Time Complexity: O(n * log(n))
+Space Complexity: O(n)
 '''
-
