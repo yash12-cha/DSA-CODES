@@ -1,33 +1,49 @@
-def partition(A,s,e):
-    pivot = A[s]
+# Function to partition the array and return the pivot index
+def partition(A, s, e):
+    pivot = A[s]  # Choose the first element as the pivot
     cnt = 0
-    for i in range(s+1,e+1):
+    
+    # Count the number of elements less than or equal to the pivot
+    for i in range(s + 1, e + 1):
         if A[i] <= pivot:
             cnt = cnt + 1
-
+    
     pivotIndex = s + cnt
-    A[pivotIndex],A[s] = A[s],A[pivotIndex]
+    
+    # Swap the pivot element with the element at the pivotIndex
+    A[pivotIndex], A[s] = A[s], A[pivotIndex]
+    
     i = s
     j = e
-    while(i < pivotIndex and j > pivotIndex):
-        while(A[i] <= pivot):
+    
+    # Perform the partitioning
+    while i < pivotIndex and j > pivotIndex:
+        while A[i] <= pivot:
             i = i + 1
-        while(A[j] > pivot):
+        while A[j] > pivot:
             j = j - 1
-        if(i < pivotIndex and j > pivotIndex):
-            A[i],A[j] = A[j],A[i]
+        if i < pivotIndex and j > pivotIndex:
+            A[i], A[j] = A[j], A[i]
             i = i + 1
             j = j - 1
+    
     return pivotIndex
 
-
-
+# Function to perform Quick Sort
 def QuickSort(A, left, right):
     if left < right:
-        pi = partition(A, left, right)
+        pi = partition(A, left, right)  # Get the pivot index
+        
+        # Recursively sort the sub-arrays before and after the pivot
         QuickSort(A, left, pi - 1)
         QuickSort(A, pi + 1, right)
+    
     return A
-A = list(map(int,input().split()))
+
+# Input array
+A = list(map(int, input().split()))
+
 n = len(A)
-print(*QuickSort(A,0,n-1))
+
+# Call QuickSort to sort the array
+print(*QuickSort(A, 0, n - 1))
