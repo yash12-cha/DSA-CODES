@@ -1,21 +1,38 @@
+# Define a function for Bubble Sort
 def bubbleSort(Arr, N):
+    # Iterate through the elements of the array
     for i in range(N - 1):
+        # Initialize a flag to check if any swaps were made in this pass
         swapped = False
-        # (N - i - 1) is for ignoring comparisons of elements which have already been compared in earlier iterations
+        
+        # Iterate through the unsorted part of the array
         for j in range(0, N - i - 1):
+            # Compare adjacent elements
             if Arr[j] > Arr[j + 1]:
+                # Swap the elements if they are in the wrong order
                 temp = Arr[j]
                 Arr[j] = Arr[j + 1]
                 Arr[j + 1] = temp
+                # Set the 'swapped' flag to True to indicate a swap was made
                 swapped = True
-        # If no number was swapped that means array is sorted now, break the loop.
+        
+        # If no swaps were made in this pass, the array is already sorted, so break out of the loop
         if swapped == False:
             break
+    
+    # Return the sorted array
     return Arr
+
+# Take input from the user for the size of the array (N) and the array elements (Arr)
 N = int(input("Input size of array: "))
-Arr = list(map(int,input("Input Array: ").split()))
+Arr = list(map(int, input("Input Array: ").split()))
+
+# Call the bubbleSort function to sort the array
 res = bubbleSort(Arr, N)
-print("Sorted Array:",*res)
+
+# Print the sorted array
+print("Sorted Array:", *res)
+
 
 '''
 Input:-
