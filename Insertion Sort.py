@@ -1,17 +1,31 @@
+# Define a function for Insertion Sort
 def insertionSort(Arr, N):
+    # Iterate through the elements of the array starting from the second element (index 1)
     for i in range(1, N):
+        # Store the current element to be inserted into the sorted portion
         current = Arr[i]
         j = i - 1
-        while (j >= 0 and Arr[j] > current):
+
+        # Move elements of the sorted portion that are greater than 'current' to the right
+        while j >= 0 and Arr[j] > current:
             Arr[j + 1] = Arr[j]
             j = j - 1
+
+        # Insert the 'current' element into its correct sorted position
         Arr[j + 1] = current
+
+    # Return the sorted array
     return Arr
 
+# Take input from the user for the size of the array (N) and the array elements (Arr)
 N = int(input("Input size of array: "))
-Arr = list(map(int,input("Input Array: ").split()))
+Arr = list(map(int, input("Input Array: ").split()))
+
+# Call the insertionSort function to sort the array
 res = insertionSort(Arr, N)
-print("Sorted Array:",*res)
+
+# Print the sorted array
+print("Sorted Array:", *res)
 
 '''
 Input:-
