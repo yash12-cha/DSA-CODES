@@ -5,25 +5,24 @@ class Node:
         self.left = None
         self.right = None
 
-# Function to find the left view of the binary tree
-def left_view_main(root, result, level, max_level):
+# Function to find the right view of the binary tree
+def right_view_main(root, result, level, max_level):
     if root is None:
         return
     if level > max_level[0]:
-        # If this is the leftmost node at the current level, add it to the result
+        # If this node is the rightmost node at the current level, add it to the result
         result.append(root.data)
-        max_level[0] = level
-    
-    # Traverse the right subtree before the left subtree to find the left view
-    left_view_main(root.right, result, level + 1, max_level)
-    left_view_main(root.left, result, level + 1, max_level)
+        max_level[0] = level  # Update the maximum level seen so far
+    # Traverse the right subtree before the left subtree to find the right view
+    right_view_main(root.right, result, level + 1, max_level)
+    right_view_main(root.left, result, level + 1, max_level)
 
-def left_view(root):
-    result = []       # Initialize an empty list to store the left view nodes
+def right_view(root):
+    result = []       # Initialize an empty list to store the right view nodes
     max_level = [-1]  # Use a list to keep track of the maximum level seen (initialized to -1)
     
-    # Call the left_view_main function to find the left view
-    left_view_main(root, result, 0, max_level)
+    # Call the right_view_main function to find the right view
+    right_view_main(root, result, 0, max_level)
     
     return result
 
@@ -36,11 +35,10 @@ root.right.left.left = Node(5)
 root.right.left.right = Node(1)
 root.right.left.right.left = Node(3)
 
-# Print the left view of the binary tree
-print("Left View of Tree is:", end=" ")
-left_view_result = left_view(root)
-print(left_view_result)
-
+# Print the right view of the binary tree
+print("Right View of Tree is:", end=" ")
+right_view_result = right_view(root)
+print(right_view_result)
 
 '''
 Time Complexity: The time complexity for above code is O(N), where N is the number of nodes in the binary tree. 
