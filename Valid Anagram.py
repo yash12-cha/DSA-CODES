@@ -1,38 +1,41 @@
+# Function to check if two strings are anagrams of each other
 def isAnagram(s, t):
-    # Initalize an empty dictionary
-    hmap = {}
-    # Return False if both strings are of different length
+    hmap = {}  # Initialize a dictionary to store character counts
+    
+    # If the lengths of the two strings are different, they can't be anagrams
     if len(s) != len(t):
         return False
 
-    # Iterate through the first string, adding each element to the dictionary and
-    # increasing the value by one when the element is already in the dictionary
+    # Count the occurrences of each character in string 's'
     for letter in s:
-        if not letter in hmap:
+        if letter not in hmap:
             hmap[letter] = 1
         else:
             hmap[letter] += 1
 
-        # Iterate through the second string, checking if the element of t is within the
-        # dictonary and decreasing the value each time it is.
-        # Once the value of a key reaches to 0, you delete the key from the hashmap.
+    # Check if string 't' has the same characters and counts as 's'
     for letter in t:
-        if not letter in hmap:
-            return False
+        if letter not in hmap:
+            return False  # If a character in 't' is not in 's', they can't be anagrams
         else:
             hmap[letter] -= 1
             if hmap[letter] == 0:
-                del hmap[letter]
+                del hmap[letter]  # Remove characters with a count of zero
 
-    return True
+    return True  # If all characters match, the strings are anagrams
 
+# Input: Read two strings from the user
 s = input("Input first string: ")
 t = input("Input second string: ")
-res = isAnagram(s,t)
-if res == True:
-    print("The two strings are anagram of each other.")
+
+# Call the isAnagram function to check if they are anagrams
+res = isAnagram(s, t)
+
+# Print the result
+if res:
+    print("The two strings are anagrams of each other.")
 else:
-    print("The two strings are not anagram of each other.")
+    print("The two strings are not anagrams of each other.")
 
     
 '''
