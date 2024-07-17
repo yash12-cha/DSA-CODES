@@ -1,39 +1,37 @@
-# Function to search for a target element in a rotated sorted array
-def search(nums, target):
-    low = 0
-    high = len(nums) - 1
-    while low <= high:
-        mid = (low + high) // 2
-        
+def binary_search(nums, target, left, right):
+    while left <= right:
+        mid = (left + right) // 2
         if nums[mid] == target:
-            return mid  # Target found at index mid
-        
-        # Check if the left part is sorted
-        if nums[low] <= nums[mid]:
-            if (target >= nums[low]) and (target < nums[mid]):
-                high = mid - 1  # Adjust the search range to the left part
-            else:
-                low = mid + 1  # Adjust the search range to the right part
-        
-        # Check if the right part is sorted
+            return mid
+        elif nums[mid] > target:
+            right = mid - 1
         else:
-            if (target > nums[mid]) and (target <= nums[high]):
-                low = mid + 1  # Adjust the search range to the right part
-            else:
-                high = mid - 1  # Adjust the search range to the left part
-    
-    return -1  # Target element not found
+            left = mid + 1
+    return -1
 
-# Input: Read the rotated sorted array and the target element
-nums = list(map(int, input("Input Array: ").split()))
-target = int(input("Input target element: "))
+def find_min_index(nums):
+    n = len(nums)
+    left, right = 0, n - 1
+    if nums[left] < nums[right]:
+        return 0
+    while left <= right:
+        mid = left + (right - left) // 2
+        next_idx = (mid + 1) % n
+        prev_idx = (mid + n - 1) % n
+        if nums[mid] <= nums[next_idx] and nums[mid] <= nums[prev_idx]:
+            return mid
+        if nums[mid] <= nums[right]:
+            right = mid - 1
+        elif nums[left] <= nums[mid]:
+            left = mid + 1
+    return -1
 
-# Call the search function and print the result
-result = search(nums, target)
-print(result)
-
-
-'''
-Time Complexity: O(log N) Binary Search requires log N comparisons to find the element.
-Space Complexity: O(1)
-'''
+def search(nums, target):
+    n = len(nums)
+    min_index = find_min_index(nums)
+    result1 = binary_search(nums, target, 0, min_index - 1)
+    result2 = binary_search(nums, target, min_index, n - 1)
+    if result1 == -1:
+        return result2
+    else:
+        return result1
