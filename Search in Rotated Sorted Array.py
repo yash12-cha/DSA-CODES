@@ -1,3 +1,5 @@
+# Python Code to search in a rotated sorted array
+
 def binary_search(nums, target, left, right):
     while left <= right:
         mid = (left + right) // 2
