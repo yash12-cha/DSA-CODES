@@ -1,4 +1,4 @@
-def binary_search(reverse_sorted_array, target):
+def reverse_binary_search(reverse_sorted_array, target):
     """
     Perform binary search on a reverse sorted array to find the index of the target element.
     
@@ -27,7 +27,7 @@ def binary_search(reverse_sorted_array, target):
 arr = list(map(int, input("Enter reverse sorted array elements: ").split()))
 target = int(input("Enter element to be searched: "))
 
-result = binary_search(arr, target)
+result = reverse_binary_search(arr, target)
 if result != -1:
     print(f"Index of the target element: {result}")
 else:
