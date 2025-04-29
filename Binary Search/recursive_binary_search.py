@@ -24,3 +24,5 @@ if result != -1:
     print(f"Index of the target element: {result}")
 else:
     print("Element not found!!!")
+
+# Time Complexity : - O(log2 n)
