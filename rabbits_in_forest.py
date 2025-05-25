@@ -29,13 +29,14 @@ ans = numRabbits(answers)
 
 '''
 Time complexity:
+
 -> Counting Answers: Iterating through the answers list of length n to count occurrences takes O(n) time.
 -> Processing Counts: Iterating through the keys in the answer_counts dictionary, which can have at most n unique keys, also takes O(n) time.
 -> Overall: Both steps are linear in the size of the input, so the total time complexity is O(n).
 
 Space complexity:
+
 -> Dictionary Storage: The answer_counts dictionary stores counts for each unique answer. In the worst case, where all answers are unique, it will have n entries, leading to O(n) space usage.
 -> Additional Variables: Other variables like total_rabbits and loop variables use constant space.
 -> Overall: The dominant space usage comes from the dictionary, resulting in O(n) space complexity.
-
 '''
